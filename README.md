@@ -58,14 +58,26 @@ project data views and serve to query these views.
  
  * extract the downloaded file, and navigate to the kafka home directory
  
- *  run this command to bring up ZooKeeper
- ``` shell
- bin/zookeeper-server-start.sh config/zookeeper.properties 
- ```
- * run this command to bring up Kafka
- ```shell 
- bin/kafka-server-start.sh config/server.properties
- ``` 
+ * run below commands to start kafka if you're using windows
+ 
+     command to bring up zookeeper
+     ``` shell
+     bin\windows\zookeeper-server-start ../../config/zookeeper.properties
+    ```
+     command to bring up kafka
+     ```shell
+    bin\windows\kafka-server-start ../../config/server.properties
+    ```
+ * run below commands to start kafka if you're using linux/macos
+ 
+     command to bring up ZooKeeper
+     ``` shell
+     bin/zookeeper-server-start.sh config/zookeeper.properties 
+     ```
+     command to bring up Kafka
+     ```shell 
+     bin/kafka-server-start.sh config/server.properties
+     ``` 
 
 ## Run the Project Locally
 
