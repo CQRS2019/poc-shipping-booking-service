@@ -1,0 +1,19 @@
+server:
+  servlet:
+    context-path: /query/bookings
+  port: ${PORT:8082}
+
+spring:
+  application:
+    name: bookings-service-query
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: bookings-events-t
+          consumer.headerMode: headers
+          group: cargo-location-summary
+          content-type: application/json
+      kafka:
+        binder:
+          headers: event_type,kafka_messageKey
