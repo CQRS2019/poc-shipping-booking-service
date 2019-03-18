@@ -14,7 +14,7 @@ spring:
           producer.headerMode: headers
           contentType: application/json
           producer.partition-key-expression: headers['partitioned_key']
-          producer.partition-count: 2
+          producer.partition-count: 1
         input:
           destination: bookings-events-t
           consumer.headerMode: headers
