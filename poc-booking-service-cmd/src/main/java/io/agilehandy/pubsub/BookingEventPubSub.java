@@ -49,7 +49,7 @@ public class BookingEventPubSub {
 	public static final String EVENTS_SNAPSHOT = "booking_snapshots";
 
 	private final String HEADER_EVENT_TYPE = "event_type";
-	private final String PARTITIONED_KEY = "partitioned_key";
+	
 
 	public BookingEventPubSub(BookingEventChannels channels) {
 		this.channels = channels;
@@ -61,7 +61,6 @@ public class BookingEventPubSub {
 				.withPayload(event)
 				.setHeader(KafkaHeaders.MESSAGE_KEY, event.getBookingId().getBytes())
 				.setHeader(HEADER_EVENT_TYPE, event.getType())
-				.setHeader(PARTITIONED_KEY, event.getBookingId())
 				.build();
 		channels.output().send(message);
 	}
