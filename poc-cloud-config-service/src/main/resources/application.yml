@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+GIT_REPO: '@project.basedir@/../config-files'
+
+spring:
+  application:
+    name: poc-config-server
+  profiles:
+    active: native
+
+---
+spring:
+  profiles: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file:///${GIT_REPO}
+---
+spring:
+  profiles: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Haybu/spring-petclinic-microservices-config.git

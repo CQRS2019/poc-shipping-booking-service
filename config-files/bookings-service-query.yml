@@ -10,7 +10,7 @@ spring:
     stream:
       bindings:
         input:
-          destination: bookings-events-t
+          destination: bookings-events
           consumer.headerMode: headers
           group: cargo-location-summary
           content-type: application/json

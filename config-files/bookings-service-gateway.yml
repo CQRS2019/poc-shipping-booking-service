@@ -2,8 +2,6 @@ server:
   port: ${PORT:8080}
 
 spring:
-  application:
-    name: bookings-service-gateway
   cloud:
     gateway:
       routes:

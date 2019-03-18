@@ -4,45 +4,28 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>io.agilehandy</groupId>
-		<artifactId>poc-shipping-booking-service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+           <groupId>io.agilehandy</groupId>
+           <artifactId>poc-shipping-booking-service</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>poc-booking-service-gateway</artifactId>
-	<name>poc-booking-service-gateway</name>
+	<artifactId>poc-cloud-discovery-service</artifactId>
+	<name>poc-cloud-discovery-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
