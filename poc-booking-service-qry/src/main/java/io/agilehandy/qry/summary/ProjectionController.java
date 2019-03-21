@@ -19,6 +19,7 @@ package io.agilehandy.qry.summary;
 
 import io.agilehandy.common.api.exceptions.NoLocationSummaryFoundException;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,5 +47,11 @@ public class ProjectionController {
 				.orElseThrow(() -> new NoLocationSummaryFoundException(
 						String.format("no location summary for zone %s and facility %s", zone, facility)
 				));
+	}
+
+	@GetMapping("/testrescall")
+	public String testResCall()
+	{
+		return "poc-booking-service-qry.testResCall()";
 	}
 }

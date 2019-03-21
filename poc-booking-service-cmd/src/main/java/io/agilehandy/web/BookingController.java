@@ -20,12 +20,18 @@ package io.agilehandy.web;
 import io.agilehandy.bookings.Booking;
 import io.agilehandy.bookings.BookingCreateCommand;
 import io.agilehandy.bookings.BookingPatchCommand;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.UUID;
 
@@ -34,9 +40,19 @@ import java.util.UUID;
  **/
 
 @RestController
+
 public class BookingController {
 
 	private final BookingService service;
+
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 
 	public BookingController(BookingService service) {
 		this.service = service;
@@ -61,6 +77,10 @@ public class BookingController {
 	                                @RequestBody BookingPatchCommand cmd) {
 		return service.patchBooking(cmd);
 	}
-	
 
+	@PostMapping("/rescall")
+	public String crossCallMS() {
+		return restTemplate.getForEntity("http://bookings-service-query/query/bookings/testrescall/", String.class).getBody();
+
+	}
 }
