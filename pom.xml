@@ -21,7 +21,6 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
-
 		<vaadin.version>12.0.7</vaadin.version>
 	</properties>
 
@@ -101,6 +100,7 @@
 		<module>poc-booking-service-cmd</module>
 		<module>poc-booking-service-qry</module>
 		<module>poc-booking-service-gateway</module>
+		<module>poc-booking-service-cmd-consumer</module>
 	</modules>
 
 </project>

@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = PocBookingServiceCmdApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @AutoConfigureMessageVerifier
-public class BookingBase {
+public class BookingMessageBase {
 
 	@Autowired
 	private MessageVerifier messaging;

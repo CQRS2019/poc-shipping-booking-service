@@ -20,19 +20,19 @@ package io.agilehandy.web;
 import io.agilehandy.bookings.Booking;
 import io.agilehandy.pubsub.BookingEventPubSub;
 import lombok.extern.slf4j.Slf4j;
-
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.streams.state.HostInfo;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
-//import org.springframework.cloud.stream.binder.kafka.streams.QueryableStoreRegistry;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import org.springframework.cloud.stream.binder.kafka.streams.QueryableStoreRegistry;
 
 /**
  * @author Haytham Mohamed
@@ -50,6 +50,7 @@ public class BookingRepository {
 		this.pubsub = pubsub;
 		this.queryableStoreRegistry = queryableStoreRegistry;
 	}
+
 
 	public void save(Booking booking) {
 		booking.getCache().stream().forEach(e -> {

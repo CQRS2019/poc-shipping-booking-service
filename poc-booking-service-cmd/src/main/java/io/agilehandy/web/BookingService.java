@@ -39,11 +39,12 @@ import java.util.UUID;
 @Service
 public class BookingService {
 
-	private final BookingRepository repository;
+	private BookingRepository repository;
 
 	public BookingService(BookingRepository repository) {
 		this.repository = repository;
 	}
+
 
 	// create summary and associated requested cargos
 	public String createBooking(BookingCreateCommand cmd) {

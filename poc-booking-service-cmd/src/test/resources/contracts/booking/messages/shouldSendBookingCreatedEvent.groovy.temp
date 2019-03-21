@@ -1,3 +1,5 @@
+package contracts.booking.message
+
 import org.springframework.cloud.contract.spec.Contract
 
 def contractDsl = Contract.make {
