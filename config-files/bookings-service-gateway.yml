@@ -1,12 +1,18 @@
 server:
   port: ${PORT:8080}
 
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
 spring:
   cloud:
     gateway:
       routes:
-        - id: booking_command_route
-          uri: http://localhost:8081/
+        - id: booking_command_route_servicediscovery
+          uri: lb://bookings-service-command/
           predicates:
             - Path=/api/bookings/**
             - Method=POST

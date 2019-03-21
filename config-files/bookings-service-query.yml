@@ -3,6 +3,7 @@ server:
     context-path: /query/bookings
   port: ${PORT:8082}
 
+
 spring:
   application:
     name: bookings-service-query
