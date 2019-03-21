@@ -16,4 +16,5 @@ spring:
           content-type: application/json
       kafka:
         binder:
+          brokers: localhost:9092 #146.222.43.12:9092
           headers: event_type,kafka_messageKey

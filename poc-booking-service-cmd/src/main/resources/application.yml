@@ -4,6 +4,19 @@ server:
   port: ${PORT:8081}
 
 spring:
+  # below config are needed if set up project connect kafka server via ip
+  # kafka bootstrap servers configurations begin
+  kafka:
+    consumer:
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
+    producer:
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
+    admin:
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
+    streams:
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
+    bootstrapServers: localhost:9092 #146.222.43.12:9092
+    # kafka bootstrap servers configurations ended
   application:
     name: bookings_service_command
   cloud:
@@ -27,13 +40,11 @@ spring:
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
               default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
-              application.server: localhost:${PORT:8081}
+              application.server: localhost:8081 #146.222.43.12:8081
         binder:
-          brokers: localhost:9092
+          brokers: localhost:9092 #146.222.43.12:9092
           headers: event_type,kafka_messageKey
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
-
-
