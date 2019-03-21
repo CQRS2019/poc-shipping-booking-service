@@ -19,9 +19,11 @@ package io.agilehandy.qry.summary;
 
 import io.agilehandy.common.api.exceptions.NoLocationSummaryFoundException;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * @author Haytham Mohamed
@@ -43,8 +45,8 @@ public class ProjectionController {
 		log.info("getting location summary");
 		return locationSummaryRepository
 				.findByZoneAndFacility(zone, facility)
-				.orElseThrow(() -> new NoLocationSummaryFoundException(
-						String.format("no location summary for zone %s and facility %s", zone, facility)
+				.orElseThrow(() -> new ResponseStatusException(
+						HttpStatus.NOT_FOUND,String.format("no location summary for zone %s and facility %s", zone, facility)
 				));
 	}
 }
