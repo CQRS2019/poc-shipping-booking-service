@@ -16,21 +16,21 @@ then:
 """)
     request {
         method 'POST'
-        url '/command/bookings/'
+        url '/command/bookings'
 
         body(file('bookingCreation.json'))
 
         headers {
-            contentType(applicationJson())
+            contentType('application/json')
         }
     }
     response {
         status 200
         body(
-                "69855ab4-4370-4c44-848e-5b13fb1dfbcb"
+                '69855ab4-4370-4c44-848e-5b13fb1dfbcb'
         )
         headers {
-            contentType(applicationJson())
+            contentType('application/json')
         }
     }
 }

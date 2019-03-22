@@ -1,25 +1,30 @@
 package io.agilehandy.rest;
 
-import io.agilehandy.pubsub.BookingEventPubSub;
+import io.agilehandy.PocBookingServiceCmdApplication;
 import io.agilehandy.web.BookingController;
-import io.agilehandy.web.BookingRepository;
 import io.agilehandy.web.BookingService;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
-import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-//remove::end[]
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = PocBookingServiceCmdApplication.class)
 
 public abstract class BookingRestBase {
-//    private BookingRepository repository= new BookingRepository();
-//    //
-////    //remove::start[]
-//    BookingController bookingController = new BookingController(new BookingService(repository));
-////
-//    @Before
-//    public void setup() {
-//        RestAssuredMockMvc.standaloneSetup(this.bookingController);
-//    }
+@Autowired
+private  BookingController bookingController ;
+
+
+
+    @Before
+    public void setup() {
+        RestAssuredMockMvc.standaloneSetup(this.bookingController);
+    }
 
 
 }

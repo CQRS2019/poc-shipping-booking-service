@@ -103,7 +103,7 @@
                 <artifactId>spring-cloud-contract-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <packageWithBaseClasses>io.agilehandy</packageWithBaseClasses>
+                    <!--<packageWithBaseClasses>io.agilehandy</packageWithBaseClasses>-->
                     <baseClassMappings>
                         <baseClassMapping>
                             <contractPackageRegex>.*messages.*</contractPackageRegex>

@@ -37,6 +37,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <!-- end::stubrunner[] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

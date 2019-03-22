@@ -13,7 +13,7 @@ spring:
           destination: bookings-events-t
           producer.headerMode: headers
           contentType: application/json
-          producer.partition-count: 2
+          producer.partition-count: 1
         input:
           destination: bookings-events-t
           consumer.headerMode: headers
