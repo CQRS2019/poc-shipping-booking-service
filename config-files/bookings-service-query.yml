@@ -1,7 +1,7 @@
 server:
   servlet:
     context-path: /query/bookings
-  port: ${PORT:8082}
+
 
 
 spring:
@@ -18,3 +18,8 @@ spring:
       kafka:
         binder:
           headers: event_type,kafka_messageKey
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery1:9661/eureka,http://discovery2:9662/eureka
