@@ -19,7 +19,6 @@ package io.agilehandy.qry.summary;
 
 import io.agilehandy.common.api.exceptions.NoLocationSummaryFoundException;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,12 +49,9 @@ public class ProjectionController {
 				));
 	}
 
-	@Value("${server.port}")
-	private int port;
-
 	@GetMapping("/testrescall")
 	public String testResCall()
 	{
-		return "poc-booking-service-qry.testResCall() from port:" + port;
+		return "poc-booking-service-qry.testResCall()";
 	}
 }

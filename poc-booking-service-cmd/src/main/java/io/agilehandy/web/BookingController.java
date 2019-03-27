@@ -21,7 +21,6 @@ import io.agilehandy.bookings.Booking;
 import io.agilehandy.bookings.BookingCreateCommand;
 import io.agilehandy.bookings.BookingPatchCommand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -79,14 +78,9 @@ public class BookingController {
 		return service.patchBooking(cmd);
 	}
 
-
-	@Value("${server.port}")
-	private int port;
-
 	@PostMapping("/rescall")
 	public String crossCallMS() {
-		return  "poc-booking-service-cmd port:" + port + ";" +
-				restTemplate.getForEntity("http://bookings-service-query/query/bookings/testrescall/", String.class).getBody();
+		return restTemplate.getForEntity("http://bookings-service-query/query/bookings/testrescall/", String.class).getBody();
 
 	}
 }

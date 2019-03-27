@@ -2,39 +2,18 @@ spring:
   application:
     name: poc-registry-service
 
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0
 
-
+server:
+  port: ${PORT:8761}
 
 logging:
   level:
     com.netflix.eureka: 'OFF'
     com.netflix.discovery: 'OFF'
 
----
-spring:
-  profiles: discovery1
-server:
-  port: 9661
-  wait-time-in-ms-when-sync-empty: 0
-eureka:
-  instance:
-    hostname: discovery1
-    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-
-  client:
-    service-url:
-      defaultZone: http://discovery2:9662/eureka
-
----
-spring:
-  profiles: discovery2
-server:
-  port: 9662
-  wait-time-in-ms-when-sync-empty: 0
-eureka:
-  instance:
-    hostname: discovery2
-    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
-  client:
-    service-url:
-      defaultZone: http://discovery1:9661/eureka
