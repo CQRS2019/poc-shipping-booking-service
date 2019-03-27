@@ -4,8 +4,7 @@ server:
 eureka:
   client:
     register-with-eureka: false
-    service-url:
-     defaultZone: http://discovery1:9661/eureka,http://discovery2:9662/eureka
+
 
 spring:
   cloud:

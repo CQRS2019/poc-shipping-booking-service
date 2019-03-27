@@ -15,10 +15,8 @@ spring:
   profiles: discovery1
 server:
   port: 9661
-
+  wait-time-in-ms-when-sync-empty: 0
 eureka:
-  server:
-    wait-time-in-ms-when-sync-empty: 0
   instance:
     hostname: discovery1
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
@@ -32,9 +30,8 @@ spring:
   profiles: discovery2
 server:
   port: 9662
+  wait-time-in-ms-when-sync-empty: 0
 eureka:
-  server:
-    wait-time-in-ms-when-sync-empty: 0
   instance:
     hostname: discovery2
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
