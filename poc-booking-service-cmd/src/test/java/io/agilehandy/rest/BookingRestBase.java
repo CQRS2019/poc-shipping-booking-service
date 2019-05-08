@@ -16,11 +16,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = PocBookingServiceCmdApplication.class)
 
 public abstract class BookingRestBase {
-@Autowired
-private  BookingController bookingController ;
-
-
-
+    @Autowired
+    private BookingController bookingController;
     @Before
     public void setup() {
         RestAssuredMockMvc.standaloneSetup(this.bookingController);

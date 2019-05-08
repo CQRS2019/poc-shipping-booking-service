@@ -37,7 +37,7 @@ public class BookingController {
 		this.service = service;
 	}
 
-	@PostMapping(
+	@PostMapping(path = "/",
 			consumes="application/json",
 			produces="application/json")
 	public String createBooking(@RequestBody BookingCreateCommand cmd) {
@@ -48,8 +48,9 @@ public class BookingController {
 		return service.createBooking(cmd);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping( path= "/")
 	public Booking getBooking(@PathVariable String id) {
+
 		return service.getBookingById(id);
 	}
 
