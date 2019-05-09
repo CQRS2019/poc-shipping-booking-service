@@ -48,7 +48,7 @@ public class BookingController {
 		return service.createBooking(cmd);
 	}
 
-	@GetMapping( path= "/")
+	@GetMapping( path= "/{id}")
 	public Booking getBooking(@PathVariable String id) {
 
 		return service.getBookingById(id);

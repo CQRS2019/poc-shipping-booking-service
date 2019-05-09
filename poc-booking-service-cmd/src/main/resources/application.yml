@@ -2,7 +2,6 @@ server:
   servlet:
     context-path: /command/bookings
   port: ${PORT:8082}
-
 spring:
   application:
     name: bookings_service_command
@@ -23,13 +22,14 @@ spring:
         streams:
           binder:
             configuration:
+              state.dir: d:\\temp\\
               commit.interval.ms: 1000
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
               default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
               application.server: localhost:${PORT:8082}
         binder:
-          brokers: localhost:9092
+          brokers: 192.168.100.99:9092
           headers: event_type,kafka_messageKey
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
