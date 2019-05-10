@@ -1,0 +1,30 @@
+{
+  "cargoRequests": [
+    {
+      "requiredSize": "SIZE_20",
+      "nature": "DANGEROUS_CARGO",
+      "origin": {
+        "opZone": "zone-1",
+        "facility": "facility-1"
+      },
+      "destination": {
+        "opZone": "zone-4",
+        "facility": "facility-4"
+      },
+      "cutOffDate": "2019-08-01 10:30:00"
+    },
+    {
+      "requiredSize": "SIZE_40",
+      "nature": "GENERAL_CARGO",
+      "origin": {
+        "opZone": "zone-5",
+        "facility": "facility-5"
+      },
+      "destination": {
+        "opZone": "zone-7",
+        "facility": "facility-7"
+      },
+      "cutOffDate": "2019-08-10 12:00:00"
+    }
+  ]
+}

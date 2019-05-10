@@ -28,8 +28,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, classes = PocBookingServiceCmdApplication.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = PocBookingServiceCmdApplication.class)
 @AutoConfigureMockMvc
 public class BookingControllerMockMvcTest {
     @Autowired
@@ -72,6 +72,8 @@ public class BookingControllerMockMvcTest {
                    "}";
     }
 
+
+
     @Test
    public void should_return_booking_number() throws Exception {
         MvcResult result = mockMvc.perform(post("/" ).content(bookingJson).contentType(MediaType.APPLICATION_JSON)
@@ -83,7 +85,7 @@ public class BookingControllerMockMvcTest {
 
     @Test
     public void should_return_a_booking_json() throws Exception {
-
+        bookingNumber="26754c05-30d3-4e7e-8333-920849eb51b6";
         mockMvc.perform(get("/"+bookingNumber )).andDo(print()).
                 andExpect(jsonPath("$.id").value(bookingNumber));
 

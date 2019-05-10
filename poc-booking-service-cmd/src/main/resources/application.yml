@@ -6,14 +6,12 @@ server:
 spring:
   kafka:
     consumer:
-      bootstrapServers: 192.168.99.100:9092 #146.222.43.12:9092
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
     producer:
-      bootstrapServers: 192.168.99.100:9092 #146.222.43.12:9092
-    admin:
-      bootstrapServers: 192.168.99.100:9092 #146.222.43.12:9092
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
     streams:
-      bootstrapServers: 192.168.99.100:9092 #146.222.43.12:9092
-    bootstrapServers: 192.168.99.100:9092
+      bootstrapServers: localhost:9092 #146.222.43.12:9092
+    bootstrapServers: localhost:9092
   application:
     name: bookings_service_command
   cloud:
@@ -38,9 +36,9 @@ spring:
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
               default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
-              application.server: 192.168.99.100:${PORT:8082}
+              application.server: localhost:${PORT:8082}
         binder:
-          brokers: 192.168.99.100:9092
+          brokers: localhost:9092
           headers: event_type,kafka_messageKey
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss

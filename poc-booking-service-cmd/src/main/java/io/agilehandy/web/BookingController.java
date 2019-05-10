@@ -20,6 +20,7 @@ package io.agilehandy.web;
 import io.agilehandy.bookings.Booking;
 import io.agilehandy.bookings.BookingCreateCommand;
 import io.agilehandy.bookings.BookingPatchCommand;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
