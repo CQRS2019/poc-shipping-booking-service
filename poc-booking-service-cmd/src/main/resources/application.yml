@@ -4,14 +4,6 @@ server:
   port: ${PORT:8082}
 
 spring:
-  kafka:
-    consumer:
-      bootstrapServers: localhost:9092 #146.222.43.12:9092
-    producer:
-      bootstrapServers: localhost:9092 #146.222.43.12:9092
-    streams:
-      bootstrapServers: localhost:9092 #146.222.43.12:9092
-    bootstrapServers: localhost:9092
   application:
     name: bookings_service_command
   cloud:
@@ -36,7 +28,8 @@ spring:
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
               default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
-              application.server: localhost:${PORT:8082}
+              application.server: localhost:${PORT:8083}
+              application.id: booking_cmd
         binder:
           brokers: localhost:9092
           headers: event_type,kafka_messageKey

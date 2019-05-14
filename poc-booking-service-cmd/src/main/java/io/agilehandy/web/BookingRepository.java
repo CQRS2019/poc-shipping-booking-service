@@ -25,6 +25,7 @@ import org.apache.kafka.streams.state.HostInfo;
 import org.apache.kafka.streams.state.KeyValueIterator;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.binder.kafka.streams.InteractiveQueryService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -41,7 +42,6 @@ import java.util.List;
 @Component
 @Slf4j
 public class BookingRepository {
-
 	private final BookingEventPubSub pubsub;
 	private final InteractiveQueryService queryableStoreRegistry;
 	//private  interactiveQueryService;
