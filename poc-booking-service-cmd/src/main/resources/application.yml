@@ -23,7 +23,7 @@ spring:
         streams:
           binder:
             configuration:
-              state.dir: d:\\temp\\
+#              state.dir: /temp/
               commit.interval.ms: 1000
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
