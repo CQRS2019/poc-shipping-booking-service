@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.get;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-class BookingControllerTest {
+class BookingControllerIntegrationTest {
 
     @Before
     void setUp() {

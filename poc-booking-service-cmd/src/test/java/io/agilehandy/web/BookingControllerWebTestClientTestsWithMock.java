@@ -2,6 +2,7 @@ package io.agilehandy.web;
 
 
 import io.agilehandy.bookings.Booking;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -19,9 +20,11 @@ import java.util.UUID;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "spring.main.web-application-type=reactive")
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,properties = "spring.main.web-application-type=reactive")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-public class BookingControllerMockWebTestClientTests {
+@Slf4j
+public class BookingControllerWebTestClientTestsWithMock {
 
     @Autowired
     private WebTestClient webClient;
@@ -35,9 +38,9 @@ public class BookingControllerMockWebTestClientTests {
 
         given(this.service.getBookingById(bookingNumber)).willReturn(booking);
 
-        EntityExchangeResult<byte[]> result = this.webClient.get().uri("/" + bookingNumber).exchange().expectStatus().isOk()
+        EntityExchangeResult<byte[]> result = this.webClient.get().uri("/command/bookings/" + bookingNumber).exchange().expectStatus().isOk()
                 .expectBody().jsonPath("$.id").isEqualTo(bookingNumber).returnResult();
-        System.out.println(new String(result.getResponseBody()));
+        log.info(new String(result.getResponseBody()));
     }
 
 }

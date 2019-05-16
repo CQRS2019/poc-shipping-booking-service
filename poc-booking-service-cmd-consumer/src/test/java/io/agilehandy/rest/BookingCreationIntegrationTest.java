@@ -30,13 +30,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = PocBookingServiceCmdCosnumerApplication.class)
-@AutoConfigureMockMvc
 @AutoConfigureJsonTesters
-//remove::start[]
-// example of usage with fixed port
 @DirtiesContext
+//@AutoConfigureMockMvc
 @AutoConfigureStubRunner(ids = {"io.agilehandy:poc-booking-service-cmd:+:stubs:8085"}, stubsMode = StubRunnerProperties.StubsMode.LOCAL)
-public class BookingCreationTest {
+public class BookingCreationIntegrationTest {
     @Autowired
     TestRestTemplate restTemplate;
     @Before
@@ -46,8 +44,8 @@ public class BookingCreationTest {
         JacksonTester.initFields(this, objectMappper);
     }
 
-    @Autowired
-    private MockMvc mockMvc;
+//    @Autowired
+//    private MockMvc mockMvc;
     private final String createBookingJson="{\n" +
             "  \"cargoRequests\": [\n" +
             "    {\n" +

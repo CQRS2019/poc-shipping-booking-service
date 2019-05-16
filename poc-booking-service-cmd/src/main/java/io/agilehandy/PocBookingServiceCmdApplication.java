@@ -9,8 +9,8 @@ import org.springframework.cloud.stream.test.binder.TestSupportBinderAutoConfigu
  * @author Haytham Mohamed
  **/
 
-//@SpringBootApplication
-@SpringBootApplication(exclude = TestSupportBinderAutoConfiguration.class)
+@SpringBootApplication
+//@SpringBootApplication(exclude = TestSupportBinderAutoConfiguration.class)
 public class PocBookingServiceCmdApplication {
 
 	public static void main(String[] args) {

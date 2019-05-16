@@ -1,8 +1,8 @@
 server:
   servlet:
     context-path: /command/bookings
-  port: ${PORT:8082}
-
+  port: ${PORT:8083}
+log:
 spring:
   application:
     name: bookings_service_command
@@ -28,7 +28,7 @@ spring:
               serdeError: logAndContinue
               default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
               default.value.serde: org.apache.kafka.common.serialization.Serdes$BytesSerde
-              application.server: localhost:${PORT:8083}
+              application.server: localhost:${PORT:8082}
               application.id: booking_cmd
         binder:
           brokers: localhost:9092
@@ -37,5 +37,3 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
-
-

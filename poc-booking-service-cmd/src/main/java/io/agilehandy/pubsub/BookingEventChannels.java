@@ -25,7 +25,8 @@ import org.springframework.messaging.MessageChannel;
 /**
  * @author Haytham Mohamed
  **/
-
+//Source
+//	KafkaStreamsProcessor
 public interface BookingEventChannels {
 
 	String BOOKING_EVENTS_IN = "input";

@@ -38,41 +38,6 @@ public class BookingControllerMockMvcTest {
     private String bookingJson;
     private String bookingNumber;
 
-    @Before
-    public void setUp() {
-           bookingJson="{\n" +
-                   "  \"cargoRequests\": [\n" +
-                   "    {\n" +
-                   "      \"requiredSize\": \"SIZE_20\",\n" +
-                   "      \"nature\": \"DANGEROUS_CARGO\",\n" +
-                   "      \"origin\": {\n" +
-                   "        \"opZone\": \"zone-1\",\n" +
-                   "        \"facility\": \"facility-1\"\n" +
-                   "      },\n" +
-                   "      \"destination\": {\n" +
-                   "        \"opZone\": \"zone-4\",\n" +
-                   "        \"facility\": \"facility-4\"\n" +
-                   "      },\n" +
-                   "      \"cutOffDate\": \"2019-08-01 10:30:00\"\n" +
-                   "    },\n" +
-                   "    {\n" +
-                   "      \"requiredSize\": \"SIZE_40\",\n" +
-                   "      \"nature\": \"GENERAL_CARGO\",\n" +
-                   "      \"origin\": {\n" +
-                   "        \"opZone\": \"zone-5\",\n" +
-                   "        \"facility\": \"facility-5\"\n" +
-                   "      },\n" +
-                   "      \"destination\": {\n" +
-                   "        \"opZone\": \"zone-7\",\n" +
-                   "        \"facility\": \"facility-7\"\n" +
-                   "      },\n" +
-                   "      \"cutOffDate\": \"2019-08-10 12:00:00\"\n" +
-                   "    }\n" +
-                   "  ]\n" +
-                   "}";
-    }
-
-
 
     @Test
    public void should_return_booking_number() throws Exception {
@@ -94,4 +59,38 @@ public class BookingControllerMockMvcTest {
     @Test
     public void pathBookingStatus() {
     }
+    @Before
+    public void setUp() {
+        bookingJson="{\n" +
+                "  \"cargoRequests\": [\n" +
+                "    {\n" +
+                "      \"requiredSize\": \"SIZE_20\",\n" +
+                "      \"nature\": \"DANGEROUS_CARGO\",\n" +
+                "      \"origin\": {\n" +
+                "        \"opZone\": \"zone-1\",\n" +
+                "        \"facility\": \"facility-1\"\n" +
+                "      },\n" +
+                "      \"destination\": {\n" +
+                "        \"opZone\": \"zone-4\",\n" +
+                "        \"facility\": \"facility-4\"\n" +
+                "      },\n" +
+                "      \"cutOffDate\": \"2019-08-01 10:30:00\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"requiredSize\": \"SIZE_40\",\n" +
+                "      \"nature\": \"GENERAL_CARGO\",\n" +
+                "      \"origin\": {\n" +
+                "        \"opZone\": \"zone-5\",\n" +
+                "        \"facility\": \"facility-5\"\n" +
+                "      },\n" +
+                "      \"destination\": {\n" +
+                "        \"opZone\": \"zone-7\",\n" +
+                "        \"facility\": \"facility-7\"\n" +
+                "      },\n" +
+                "      \"cutOffDate\": \"2019-08-10 12:00:00\"\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
+    }
+
 }
