@@ -10,6 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+
 	<groupId>io.agilehandy</groupId>
 	<artifactId>poc-shipping-booking-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

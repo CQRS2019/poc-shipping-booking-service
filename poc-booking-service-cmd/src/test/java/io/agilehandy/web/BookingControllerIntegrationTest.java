@@ -2,6 +2,7 @@ package io.agilehandy.web;
 
 import io.restassured.RestAssured;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.CoreMatchers.equalTo;
-
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 class BookingControllerIntegrationTest {
 
@@ -33,7 +34,5 @@ class BookingControllerIntegrationTest {
     }
 
 
-    @Test
-    void pathBookingStatus() {
-    }
+
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script type="application/javascript">
+        function registerEventSourceAndAddResponseTo(uri, elementId) {
+            var stringEvents = document.getElementById(elementId);
+            var stringEventSource = new (uri);
+            stringEventSource.onmessage = function(e) {
+                var newElement = document.createElement("li");
+                newElement.innerHTML = e.data;
+                stringEvents.appendChild(newElement);
+            }
+        }
+        addEvent("click", document.getElementById('subscribe-button'),
+            function() {
+                registerEventSourceAndAddResponseTo("/stocks/IBM",
+                    "display");
+            }
+        );
+        function addEvent(evnt, elem, func) {
+            if (typeof(EventSource) !== "undefined") {
+                elem.addEventListener(evnt,func,false);
+            }
+            else { // No much to do
+                elem[evnt] = func;
+            }
+        }
+    </script>
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <button id="subscribe-button">Get Latest IBM Price</button>
+<ul id="display"></ul>
+</p>
+</body>
+</html>

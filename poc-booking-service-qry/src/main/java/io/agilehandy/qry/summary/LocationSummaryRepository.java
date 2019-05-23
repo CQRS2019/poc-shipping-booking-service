@@ -18,13 +18,15 @@
 package io.agilehandy.qry.summary;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.Optional;
 
 /**
  * @author Haytham Mohamed
  **/
-
+@RepositoryRestResource(collectionResourceRel = "LocationSummary", path =
+		"locationSummary")
 public interface LocationSummaryRepository extends CrudRepository<LocationSummary, String> {
 
 	public Optional<LocationSummary> findByZoneAndFacility(String zone, String facility);
