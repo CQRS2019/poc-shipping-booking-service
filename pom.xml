@@ -101,6 +101,8 @@
 		<module>poc-booking-service-cmd</module>
 		<module>poc-booking-service-qry</module>
 		<module>poc-booking-service-gateway</module>
+		<module>poc-cloud-config-service</module>
+		<module>poc-cloud-discovery-service</module>
 	</modules>
 
 </project>

@@ -1,10 +1,13 @@
 spring:
+  zipkin:
+    base-url: http://192.168.99.100:32768
   profiles:
     active: eureka1
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
 ---
 spring:
   profiles: eureka1
